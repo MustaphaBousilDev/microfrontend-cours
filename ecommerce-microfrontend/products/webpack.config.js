@@ -13,7 +13,12 @@ module.exports={
                 './ProductsIndex': './src/index.js'
             },
             //shared dependency
-            shared: ['faker'],
+            shared: {
+                faker: {
+                  //if exists diffetent version of dependancy in diffenrent compoennt they loading both file but when we using singlton true we loading one fucking file
+                 singleton: true,
+                }
+             }
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html'
